@@ -17,8 +17,9 @@ def count_fixed_bound_subarrays(nums, minK, maxK):
 
     return count
 
+# Test case
 nums = [1, 3, 5, 2, 7, 5]
 minK = 1
 maxK = 5
 result = count_fixed_bound_subarrays(nums, minK, maxK)
-print(result)  
+print(result)  # Example output
