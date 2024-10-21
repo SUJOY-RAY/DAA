@@ -2,28 +2,35 @@
 #include <vector>
 using namespace std;
 
-vector<int> quickSort(vector<int>& arr){
-    int pivot=arr[0];
-    vector<int> left,equal,right;
+vector<int> quickSort(vector<int> arr){
+    if (arr.size() <= 1) {
+        return arr;
+    }
+
+    int pivot = arr[0];
+    vector<int> left, equal, right;
+
     for (auto &num : arr){
-        if (num<pivot)
-        {
+        if (num < pivot) {
             left.push_back(num);
-        }else if (num>pivot)
-        {
+        } else if (num > pivot) {
             right.push_back(num);
-        }else{
+        } else {
             equal.push_back(num);
         }        
     }
-    left.insert(left.end(),equal.begin(),equal.end());
-    left.insert(left.end(),right.begin(),right.end());
+
+    left = quickSort(left);
+    right = quickSort(right);
+
+    left.insert(left.end(), equal.begin(), equal.end());
+    left.insert(left.end(), right.begin(), right.end());
 
     return left;
-    
 }
+
 int main(){
-        int n;
+    int n;
     cin >> n;
     vector<int> arr(n);
     for (int i = 0; i < n; i++) {
@@ -37,5 +44,4 @@ int main(){
     cout << endl;
 
     return 0;
-
 }
