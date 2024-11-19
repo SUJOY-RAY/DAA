@@ -2,7 +2,6 @@
 using namespace std;
 
 
-
 int knapsack(int W, int wt[],int val[],int n){
     int dp[n+1][W+1];
     for (int i = 0; i <= n; i++)
